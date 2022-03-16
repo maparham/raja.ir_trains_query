@@ -44,8 +44,16 @@ while True:
             continue
         try:
             r = requests.get(url, auth=('usrname', 'password'), verify=False, stream=True)
-        except requests.exceptions.ConnectionError as e:
-            print("connection error: ", e)
+        except requests.exceptions.HTTPError as errh:
+            print("Http Error:", errh)
+        except requests.exceptions.ConnectionError as errc:
+            print("Error Connecting:", errc)
+            break
+        except requests.exceptions.Timeout as errt:
+            print("Timeout Error:", errt)
+            break
+        except requests.exceptions.RequestException as err:
+            print("OOps: Something Else", err)
             break
         if r.status_code == 400:
             print(r.content.decode())
@@ -64,4 +72,4 @@ while True:
                     timeout=100
                 )
                 os.system('say "Qataar payda shud."')
-    time.sleep(40)
+    time.sleep(30)
