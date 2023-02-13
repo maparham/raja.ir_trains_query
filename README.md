@@ -1,1 +1,1 @@
-Priodically checks raja.ir for trains that using hard-coded urls obtained from their public website. The goal is to know which trains still has free seats for certain dates without using their cumbersome web portal.
+Priodically checks raja.ir for trains using hard-coded urls obtained from their public website. The goal is to search for trains that still have free seats for certain dates without using their cumbersome web portal.
